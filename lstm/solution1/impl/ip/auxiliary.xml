@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="LSTM_Top" xd:componentRef="LSTM_Top" xd:initiationInterval="413746" xd:clockPeriod="10.000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+  <xd:arg xd:name="in[].data" xd:originalName="in" xd:direction="in" xd:interfaceRef="in_r" xd:busTypeRef="axis" xd:arraySize="784" xd:dataWidth="32"/>
+  <xd:arg xd:name="in[].keep" xd:originalName="in" xd:direction="in" xd:interfaceRef="in_r" xd:busTypeRef="axis" xd:arraySize="784" xd:dataWidth="4"/>
+  <xd:arg xd:name="in[].strb" xd:originalName="in" xd:direction="in" xd:interfaceRef="in_r" xd:busTypeRef="axis" xd:arraySize="784" xd:dataWidth="4"/>
+  <xd:arg xd:name="in[].user" xd:originalName="in" xd:direction="in" xd:interfaceRef="in_r" xd:busTypeRef="axis" xd:arraySize="784" xd:dataWidth="1"/>
+  <xd:arg xd:name="in[].last" xd:originalName="in" xd:direction="in" xd:interfaceRef="in_r" xd:busTypeRef="axis" xd:arraySize="784" xd:dataWidth="1"/>
+  <xd:arg xd:name="in[].id" xd:originalName="in" xd:direction="in" xd:interfaceRef="in_r" xd:busTypeRef="axis" xd:arraySize="784" xd:dataWidth="1"/>
+  <xd:arg xd:name="in[].dest" xd:originalName="in" xd:direction="in" xd:interfaceRef="in_r" xd:busTypeRef="axis" xd:arraySize="784" xd:dataWidth="1"/>
+  <xd:arg xd:name="out[].data" xd:originalName="out" xd:direction="out" xd:interfaceRef="out_r" xd:busTypeRef="axis" xd:arraySize="5" xd:dataWidth="32"/>
+  <xd:arg xd:name="out[].keep" xd:originalName="out" xd:direction="out" xd:interfaceRef="out_r" xd:busTypeRef="axis" xd:arraySize="5" xd:dataWidth="4"/>
+  <xd:arg xd:name="out[].strb" xd:originalName="out" xd:direction="out" xd:interfaceRef="out_r" xd:busTypeRef="axis" xd:arraySize="5" xd:dataWidth="4"/>
+  <xd:arg xd:name="out[].user" xd:originalName="out" xd:direction="out" xd:interfaceRef="out_r" xd:busTypeRef="axis" xd:arraySize="5" xd:dataWidth="1"/>
+  <xd:arg xd:name="out[].last" xd:originalName="out" xd:direction="out" xd:interfaceRef="out_r" xd:busTypeRef="axis" xd:arraySize="5" xd:dataWidth="1"/>
+  <xd:arg xd:name="out[].id" xd:originalName="out" xd:direction="out" xd:interfaceRef="out_r" xd:busTypeRef="axis" xd:arraySize="5" xd:dataWidth="1"/>
+  <xd:arg xd:name="out[].dest" xd:originalName="out" xd:direction="out" xd:interfaceRef="out_r" xd:busTypeRef="axis" xd:arraySize="5" xd:dataWidth="1"/>
+  <xd:latencyEstimates xd:best-case="413741" xd:worst-case="413745" xd:average-case="413743"/>
+  <xd:resourceEstimates xd:LUT="48954" xd:FF="46300" xd:BRAM="88" xd:DSP="175"/>
+</xd:acceleratorMap>

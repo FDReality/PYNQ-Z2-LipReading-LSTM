@@ -1,0 +1,251 @@
+
+
+================================================================
+== Vivado HLS Report for 'tanh'
+================================================================
+* Date:           Fri Nov 25 11:49:28 2022
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        LSTM
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 8.683 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |       91|       91| 0.910 us | 0.910 us |   91|   91|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        |          |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name|   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        |- i_loop  |       89|       89|        59|          1|          1|    32|    yes   |
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  | URAM|
++-----------------+---------+-------+--------+-------+-----+
+|DSP              |        -|      -|       -|      -|    -|
+|Expression       |        -|      -|       0|    102|    -|
+|FIFO             |        -|      -|       -|      -|    -|
+|Instance         |        -|    116|   15054|  23414|    -|
+|Memory           |        -|      -|       -|      -|    -|
+|Multiplexer      |        -|      -|       -|     48|    -|
+|Register         |        0|      -|    1170|    192|    -|
++-----------------+---------+-------+--------+-------+-----+
+|Total            |        0|    116|   16224|  23756|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Available        |      280|    220|  106400|  53200|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Utilization (%)  |        0|     52|      15|     44|    0|
++-----------------+---------+-------+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    +--------------------------+----------------------+---------+-------+------+------+-----+
+    |         Instance         |        Module        | BRAM_18K| DSP48E|  FF  |  LUT | URAM|
+    +--------------------------+----------------------+---------+-------+------+------+-----+
+    |LSTM_Top_dadd_64nfYi_U32  |LSTM_Top_dadd_64nfYi  |        0|      3|   445|  1149|    0|
+    |LSTM_Top_dadd_64nfYi_U34  |LSTM_Top_dadd_64nfYi  |        0|      3|   445|  1149|    0|
+    |LSTM_Top_ddiv_64ng8j_U35  |LSTM_Top_ddiv_64ng8j  |        0|      0|  3211|  3658|    0|
+    |LSTM_Top_ddiv_64ng8j_U36  |LSTM_Top_ddiv_64ng8j  |        0|      0|  3211|  3658|    0|
+    |LSTM_Top_dexp_64nhbi_U37  |LSTM_Top_dexp_64nhbi  |        0|     26|  1549|  2599|    0|
+    |LSTM_Top_dexp_64nhbi_U38  |LSTM_Top_dexp_64nhbi  |        0|     26|  1549|  2599|    0|
+    |LSTM_Top_dexp_64nhbi_U39  |LSTM_Top_dexp_64nhbi  |        0|     26|  1549|  2599|    0|
+    |LSTM_Top_dexp_64nhbi_U40  |LSTM_Top_dexp_64nhbi  |        0|     26|  1549|  2599|    0|
+    |LSTM_Top_dsub_64nibs_U31  |LSTM_Top_dsub_64nibs  |        0|      3|   445|  1149|    0|
+    |LSTM_Top_dsub_64nibs_U33  |LSTM_Top_dsub_64nibs  |        0|      3|   445|  1149|    0|
+    |LSTM_Top_fpext_32eOg_U27  |LSTM_Top_fpext_32eOg  |        0|      0|   100|   138|    0|
+    |LSTM_Top_fpext_32eOg_U28  |LSTM_Top_fpext_32eOg  |        0|      0|   100|   138|    0|
+    |LSTM_Top_fpext_32eOg_U29  |LSTM_Top_fpext_32eOg  |        0|      0|   100|   138|    0|
+    |LSTM_Top_fpext_32eOg_U30  |LSTM_Top_fpext_32eOg  |        0|      0|   100|   138|    0|
+    |LSTM_Top_fptrunc_dEe_U25  |LSTM_Top_fptrunc_dEe  |        0|      0|   128|   277|    0|
+    |LSTM_Top_fptrunc_dEe_U26  |LSTM_Top_fptrunc_dEe  |        0|      0|   128|   277|    0|
+    +--------------------------+----------------------+---------+-------+------+------+-----+
+    |Total                     |                      |        0|    116| 15054| 23414|    0|
+    +--------------------------+----------------------+---------+-------+------+------+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-------------------------+----------+-------+---+----+------------+------------+
+    |      Variable Name      | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-------------------------+----------+-------+---+----+------------+------------+
+    |add_ln90_fu_193_p2       |     +    |      0|  0|  15|           2|           7|
+    |icmp_ln90_fu_167_p2      |   icmp   |      0|  0|  11|           7|           8|
+    |or_ln90_fu_182_p2        |    or    |      0|  0|   6|           6|           1|
+    |ap_enable_pp0            |    xor   |      0|  0|   2|           1|           2|
+    |ap_enable_reg_pp0_iter1  |    xor   |      0|  0|   2|           2|           1|
+    |xor_ln94_1_fu_218_p2     |    xor   |      0|  0|  33|          32|          33|
+    |xor_ln94_fu_203_p2       |    xor   |      0|  0|  33|          32|          33|
+    +-------------------------+----------+-------+---+----+------------+------------+
+    |Total                    |          |      0|  0| 102|          82|          85|
+    +-------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +--------------------------+----+-----------+-----+-----------+
+    |           Name           | LUT| Input Size| Bits| Total Bits|
+    +--------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                 |  21|          4|    1|          4|
+    |ap_enable_reg_pp0_iter1   |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter58  |   9|          2|    1|          2|
+    |i_0_0_reg_90              |   9|          2|    7|         14|
+    +--------------------------+----+-----------+-----+-----------+
+    |Total                     |  48|         10|   10|         22|
+    +--------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +--------------------------+----+----+-----+-----------+
+    |           Name           | FF | LUT| Bits| Const Bits|
+    +--------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                 |   3|   0|    3|          0|
+    |ap_enable_reg_pp0_iter0   |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1   |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter10  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter11  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter12  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter13  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter14  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter15  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter16  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter17  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter18  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter19  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter2   |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter20  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter21  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter22  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter23  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter24  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter25  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter26  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter27  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter28  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter29  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter3   |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter30  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter31  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter32  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter33  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter34  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter35  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter36  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter37  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter38  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter39  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter4   |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter40  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter41  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter42  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter43  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter44  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter45  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter46  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter47  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter48  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter49  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter5   |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter50  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter51  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter52  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter53  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter54  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter55  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter56  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter57  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter58  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter6   |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter7   |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter8   |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter9   |   1|   0|    1|          0|
+    |i_0_0_reg_90              |   7|   0|    7|          0|
+    |icmp_ln90_reg_229         |   1|   0|    1|          0|
+    |tmp1_reg_278              |  64|   0|   64|          0|
+    |tmp_1_1_reg_310           |  64|   0|   64|          0|
+    |tmp_1_reg_298             |  64|   0|   64|          0|
+    |tmp_3_1_reg_293           |  64|   0|   64|          0|
+    |tmp_3_reg_283             |  64|   0|   64|          0|
+    |tmp_4_1_reg_316           |  64|   0|   64|          0|
+    |tmp_4_reg_304             |  64|   0|   64|          0|
+    |tmp_5_1_reg_332           |  64|   0|   64|          0|
+    |tmp_5_reg_322             |  64|   0|   64|          0|
+    |tmp_6_1_reg_337           |  64|   0|   64|          0|
+    |tmp_6_reg_327             |  64|   0|   64|          0|
+    |tmp_7_1_reg_347           |  64|   0|   64|          0|
+    |tmp_7_reg_342             |  64|   0|   64|          0|
+    |tmp_s_reg_288             |  64|   0|   64|          0|
+    |zext_ln94_1_reg_243       |   5|   0|   64|         59|
+    |zext_ln94_reg_233         |   7|   0|   64|         57|
+    |icmp_ln90_reg_229         |  64|  64|    1|          0|
+    |zext_ln94_1_reg_243       |  64|  64|   64|         59|
+    |zext_ln94_reg_233         |  64|  64|   64|         57|
+    +--------------------------+----+----+-----+-----------+
+    |Total                     |1170| 192| 1223|        232|
+    +--------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------+-----+-----+------------+--------------+--------------+
+|   RTL Ports  | Dir | Bits|  Protocol  | Source Object|    C Type    |
++--------------+-----+-----+------------+--------------+--------------+
+|ap_clk        |  in |    1| ap_ctrl_hs |     tanh     | return value |
+|ap_rst        |  in |    1| ap_ctrl_hs |     tanh     | return value |
+|ap_start      |  in |    1| ap_ctrl_hs |     tanh     | return value |
+|ap_done       | out |    1| ap_ctrl_hs |     tanh     | return value |
+|ap_idle       | out |    1| ap_ctrl_hs |     tanh     | return value |
+|ap_ready      | out |    1| ap_ctrl_hs |     tanh     | return value |
+|res_address0  | out |    6|  ap_memory |      res     |     array    |
+|res_ce0       | out |    1|  ap_memory |      res     |     array    |
+|res_we0       | out |    1|  ap_memory |      res     |     array    |
+|res_d0        | out |   32|  ap_memory |      res     |     array    |
+|res_address1  | out |    6|  ap_memory |      res     |     array    |
+|res_ce1       | out |    1|  ap_memory |      res     |     array    |
+|res_we1       | out |    1|  ap_memory |      res     |     array    |
+|res_d1        | out |   32|  ap_memory |      res     |     array    |
+|a_address0    | out |    6|  ap_memory |       a      |     array    |
+|a_ce0         | out |    1|  ap_memory |       a      |     array    |
+|a_q0          |  in |   32|  ap_memory |       a      |     array    |
+|a_address1    | out |    6|  ap_memory |       a      |     array    |
+|a_ce1         | out |    1|  ap_memory |       a      |     array    |
+|a_q1          |  in |   32|  ap_memory |       a      |     array    |
++--------------+-----+-----+------------+--------------+--------------+
+

@@ -1,0 +1,241 @@
+
+
+================================================================
+== Vivado HLS Report for 'geva_1'
+================================================================
+* Date:           Fri Nov 25 11:49:16 2022
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        LSTM
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 7.256 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |       73|       73| 0.730 us | 0.730 us |   73|   73|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        |          |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name|   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        |- i_loop  |       71|       71|        10|          2|          1|    32|    yes   |
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 2, depth = 10
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 12
+* Pipeline : 1
+  Pipeline-0 : II = 2, D = 10, States = { 2 3 4 5 6 7 8 9 10 11 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 12 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 2 
+12 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.76>
+ST_1 : Operation 13 [1/1] (1.76ns)   --->   "br label %1" [LSTM/rnn.cpp:105]   --->   Operation 13 'br' <Predicate = true> <Delay = 1.76>
+
+State 2 <SV = 1> <Delay = 3.25>
+ST_2 : Operation 14 [1/1] (0.00ns)   --->   "%i_0_0 = phi i7 [ 0, %0 ], [ %add_ln105, %i_loop ]" [LSTM/rnn.cpp:105]   --->   Operation 14 'phi' 'i_0_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 15 [1/1] (0.00ns)   --->   "%tmp_2 = call i1 @_ssdm_op_BitSelect.i1.i7.i32(i7 %i_0_0, i32 6)" [LSTM/rnn.cpp:105]   --->   Operation 15 'bitselect' 'tmp_2' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 16 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 32, i64 32, i64 32)"   --->   Operation 16 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 17 [1/1] (0.00ns)   --->   "br i1 %tmp_2, label %2, label %i_loop" [LSTM/rnn.cpp:105]   --->   Operation 17 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%trunc_ln105 = trunc i7 %i_0_0 to i6" [LSTM/rnn.cpp:105]   --->   Operation 18 'trunc' 'trunc_ln105' <Predicate = (!tmp_2)> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "%zext_ln109 = zext i7 %i_0_0 to i64" [LSTM/rnn.cpp:109]   --->   Operation 19 'zext' 'zext_ln109' <Predicate = (!tmp_2)> <Delay = 0.00>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%a_addr = getelementptr [64 x float]* %a, i64 0, i64 %zext_ln109" [LSTM/rnn.cpp:109]   --->   Operation 20 'getelementptr' 'a_addr' <Predicate = (!tmp_2)> <Delay = 0.00>
+ST_2 : Operation 21 [2/2] (3.25ns)   --->   "%a_load = load float* %a_addr, align 4" [LSTM/rnn.cpp:109]   --->   Operation 21 'load' 'a_load' <Predicate = (!tmp_2)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "%res_addr = getelementptr [64 x float]* %res, i64 0, i64 %zext_ln109" [LSTM/rnn.cpp:109]   --->   Operation 22 'getelementptr' 'res_addr' <Predicate = (!tmp_2)> <Delay = 0.00>
+ST_2 : Operation 23 [2/2] (3.25ns)   --->   "%res_load = load float* %res_addr, align 4" [LSTM/rnn.cpp:109]   --->   Operation 23 'load' 'res_load' <Predicate = (!tmp_2)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%or_ln105 = or i6 %trunc_ln105, 1" [LSTM/rnn.cpp:105]   --->   Operation 24 'or' 'or_ln105' <Predicate = (!tmp_2)> <Delay = 0.00>
+ST_2 : Operation 25 [1/1] (0.00ns)   --->   "%zext_ln109_1 = zext i6 %or_ln105 to i64" [LSTM/rnn.cpp:109]   --->   Operation 25 'zext' 'zext_ln109_1' <Predicate = (!tmp_2)> <Delay = 0.00>
+ST_2 : Operation 26 [1/1] (0.00ns)   --->   "%a_addr_3 = getelementptr [64 x float]* %a, i64 0, i64 %zext_ln109_1" [LSTM/rnn.cpp:109]   --->   Operation 26 'getelementptr' 'a_addr_3' <Predicate = (!tmp_2)> <Delay = 0.00>
+ST_2 : Operation 27 [2/2] (3.25ns)   --->   "%a_load_1 = load float* %a_addr_3, align 4" [LSTM/rnn.cpp:109]   --->   Operation 27 'load' 'a_load_1' <Predicate = (!tmp_2)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "%res_addr_3 = getelementptr [64 x float]* %res, i64 0, i64 %zext_ln109_1" [LSTM/rnn.cpp:109]   --->   Operation 28 'getelementptr' 'res_addr_3' <Predicate = (!tmp_2)> <Delay = 0.00>
+ST_2 : Operation 29 [2/2] (3.25ns)   --->   "%res_load_1 = load float* %res_addr_3, align 4" [LSTM/rnn.cpp:109]   --->   Operation 29 'load' 'res_load_1' <Predicate = (!tmp_2)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+
+State 3 <SV = 2> <Delay = 3.25>
+ST_3 : Operation 30 [1/2] (3.25ns)   --->   "%a_load = load float* %a_addr, align 4" [LSTM/rnn.cpp:109]   --->   Operation 30 'load' 'a_load' <Predicate = (!tmp_2)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_3 : Operation 31 [1/2] (3.25ns)   --->   "%res_load = load float* %res_addr, align 4" [LSTM/rnn.cpp:109]   --->   Operation 31 'load' 'res_load' <Predicate = (!tmp_2)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_3 : Operation 32 [1/2] (3.25ns)   --->   "%a_load_1 = load float* %a_addr_3, align 4" [LSTM/rnn.cpp:109]   --->   Operation 32 'load' 'a_load_1' <Predicate = (!tmp_2)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_3 : Operation 33 [1/2] (3.25ns)   --->   "%res_load_1 = load float* %res_addr_3, align 4" [LSTM/rnn.cpp:109]   --->   Operation 33 'load' 'res_load_1' <Predicate = (!tmp_2)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_3 : Operation 34 [1/1] (1.87ns)   --->   "%add_ln105 = add i7 2, %i_0_0" [LSTM/rnn.cpp:105]   --->   Operation 34 'add' 'add_ln105' <Predicate = (!tmp_2)> <Delay = 1.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 4 <SV = 3> <Delay = 7.25>
+ST_4 : Operation 35 [5/5] (7.25ns)   --->   "%tmp8 = fadd float %res_load, %a_load" [LSTM/rnn.cpp:109]   --->   Operation 35 'fadd' 'tmp8' <Predicate = (!tmp_2)> <Delay = 7.25> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 5 <SV = 4> <Delay = 7.25>
+ST_5 : Operation 36 [4/5] (7.25ns)   --->   "%tmp8 = fadd float %res_load, %a_load" [LSTM/rnn.cpp:109]   --->   Operation 36 'fadd' 'tmp8' <Predicate = (!tmp_2)> <Delay = 7.25> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 37 [5/5] (7.25ns)   --->   "%tmp_1 = fadd float %res_load_1, %a_load_1" [LSTM/rnn.cpp:109]   --->   Operation 37 'fadd' 'tmp_1' <Predicate = (!tmp_2)> <Delay = 7.25> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 6 <SV = 5> <Delay = 7.25>
+ST_6 : Operation 38 [3/5] (7.25ns)   --->   "%tmp8 = fadd float %res_load, %a_load" [LSTM/rnn.cpp:109]   --->   Operation 38 'fadd' 'tmp8' <Predicate = (!tmp_2)> <Delay = 7.25> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 39 [4/5] (7.25ns)   --->   "%tmp_1 = fadd float %res_load_1, %a_load_1" [LSTM/rnn.cpp:109]   --->   Operation 39 'fadd' 'tmp_1' <Predicate = (!tmp_2)> <Delay = 7.25> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 7 <SV = 6> <Delay = 7.25>
+ST_7 : Operation 40 [2/5] (7.25ns)   --->   "%tmp8 = fadd float %res_load, %a_load" [LSTM/rnn.cpp:109]   --->   Operation 40 'fadd' 'tmp8' <Predicate = (!tmp_2)> <Delay = 7.25> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 41 [3/5] (7.25ns)   --->   "%tmp_1 = fadd float %res_load_1, %a_load_1" [LSTM/rnn.cpp:109]   --->   Operation 41 'fadd' 'tmp_1' <Predicate = (!tmp_2)> <Delay = 7.25> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 8 <SV = 7> <Delay = 7.25>
+ST_8 : Operation 42 [1/5] (7.25ns)   --->   "%tmp8 = fadd float %res_load, %a_load" [LSTM/rnn.cpp:109]   --->   Operation 42 'fadd' 'tmp8' <Predicate = (!tmp_2)> <Delay = 7.25> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 43 [2/5] (7.25ns)   --->   "%tmp_1 = fadd float %res_load_1, %a_load_1" [LSTM/rnn.cpp:109]   --->   Operation 43 'fadd' 'tmp_1' <Predicate = (!tmp_2)> <Delay = 7.25> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 9 <SV = 8> <Delay = 7.25>
+ST_9 : Operation 44 [1/1] (3.25ns)   --->   "store float %tmp8, float* %res_addr, align 4" [LSTM/rnn.cpp:109]   --->   Operation 44 'store' <Predicate = (!tmp_2)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_9 : Operation 45 [1/5] (7.25ns)   --->   "%tmp_1 = fadd float %res_load_1, %a_load_1" [LSTM/rnn.cpp:109]   --->   Operation 45 'fadd' 'tmp_1' <Predicate = (!tmp_2)> <Delay = 7.25> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 10 <SV = 9> <Delay = 0.00>
+
+State 11 <SV = 10> <Delay = 3.25>
+ST_11 : Operation 46 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([7 x i8]* @p_str410) nounwind" [LSTM/rnn.cpp:106]   --->   Operation 46 'specloopname' <Predicate = (!tmp_2)> <Delay = 0.00>
+ST_11 : Operation 47 [1/1] (0.00ns)   --->   "%tmp = call i32 (...)* @_ssdm_op_SpecRegionBegin([7 x i8]* @p_str410)" [LSTM/rnn.cpp:106]   --->   Operation 47 'specregionbegin' 'tmp' <Predicate = (!tmp_2)> <Delay = 0.00>
+ST_11 : Operation 48 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str28) nounwind" [LSTM/rnn.cpp:108]   --->   Operation 48 'specpipeline' <Predicate = (!tmp_2)> <Delay = 0.00>
+ST_11 : Operation 49 [1/1] (0.00ns)   --->   "%empty_22 = call i32 (...)* @_ssdm_op_SpecRegionEnd([7 x i8]* @p_str410, i32 %tmp)" [LSTM/rnn.cpp:110]   --->   Operation 49 'specregionend' 'empty_22' <Predicate = (!tmp_2)> <Delay = 0.00>
+ST_11 : Operation 50 [1/1] (3.25ns)   --->   "store float %tmp_1, float* %res_addr_3, align 4" [LSTM/rnn.cpp:109]   --->   Operation 50 'store' <Predicate = (!tmp_2)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 64> <RAM>
+ST_11 : Operation 51 [1/1] (0.00ns)   --->   "br label %1" [LSTM/rnn.cpp:105]   --->   Operation 51 'br' <Predicate = (!tmp_2)> <Delay = 0.00>
+
+State 12 <SV = 2> <Delay = 0.00>
+ST_12 : Operation 52 [1/1] (0.00ns)   --->   "ret void" [LSTM/rnn.cpp:111]   --->   Operation 52 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i_0_0', LSTM/rnn.cpp:105) with incoming values : ('add_ln105', LSTM/rnn.cpp:105) [5]  (1.77 ns)
+
+ <State 2>: 3.25ns
+The critical path consists of the following:
+	'phi' operation ('i_0_0', LSTM/rnn.cpp:105) with incoming values : ('add_ln105', LSTM/rnn.cpp:105) [5]  (0 ns)
+	'getelementptr' operation ('a_addr', LSTM/rnn.cpp:109) [15]  (0 ns)
+	'load' operation ('a_load', LSTM/rnn.cpp:109) on array 'a' [16]  (3.25 ns)
+
+ <State 3>: 3.25ns
+The critical path consists of the following:
+	'load' operation ('a_load', LSTM/rnn.cpp:109) on array 'a' [16]  (3.25 ns)
+
+ <State 4>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('tmp8', LSTM/rnn.cpp:109) [19]  (7.26 ns)
+
+ <State 5>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('tmp8', LSTM/rnn.cpp:109) [19]  (7.26 ns)
+
+ <State 6>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('tmp8', LSTM/rnn.cpp:109) [19]  (7.26 ns)
+
+ <State 7>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('tmp8', LSTM/rnn.cpp:109) [19]  (7.26 ns)
+
+ <State 8>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('tmp8', LSTM/rnn.cpp:109) [19]  (7.26 ns)
+
+ <State 9>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_1', LSTM/rnn.cpp:109) [28]  (7.26 ns)
+
+ <State 10>: 0ns
+The critical path consists of the following:
+
+ <State 11>: 3.25ns
+The critical path consists of the following:
+	'store' operation ('store_ln109', LSTM/rnn.cpp:109) of variable 'tmp_1', LSTM/rnn.cpp:109 on array 'res' [29]  (3.25 ns)
+
+ <State 12>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

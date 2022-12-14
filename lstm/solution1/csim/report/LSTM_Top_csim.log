@@ -1,0 +1,15 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../main.cpp in debug mode
+csim.mk:75: recipe for target 'obj/main.o' failed
+../../../main.cpp: In function 'float mnist_app_test_all()':
+../../../main.cpp:121:29: error: too few arguments to function 'void infer(float*, float*)'
+   int net_output = infer(buf);
+                             ^
+In file included from ../../../main.cpp:5:0:
+../../../rnn.h:20:6: note: declared here
+ void infer(float input[IMG_SIZE], float res[CLASS_NUM]);
+      ^~~~~
+make: *** [obj/main.o] Error 1
+ERR: [SIM 100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 3] *************** CSIM finish ***************

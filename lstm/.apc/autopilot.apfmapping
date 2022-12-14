@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="weight.h" path="C:\Users\fd_reality\AppData\Roaming\Xilinx\Vivado\LSTM\weight.h"/>
+    <originFiles name="utils.h" path="C:\Users\fd_reality\AppData\Roaming\Xilinx\Vivado\LSTM\utils.h"/>
+    <originFiles name="rnn_top.cpp" path="C:\Users\fd_reality\AppData\Roaming\Xilinx\Vivado\LSTM\rnn_top.cpp"/>
+    <originFiles name="rnn.h" path="C:\Users\fd_reality\AppData\Roaming\Xilinx\Vivado\LSTM\rnn.h"/>
+    <originFiles name="rnn.cpp" path="C:\Users\fd_reality\AppData\Roaming\Xilinx\Vivado\LSTM\rnn.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="main.cpp" path="C:\Users\fd_reality\AppData\Roaming\Xilinx\Vivado\LSTM\main.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

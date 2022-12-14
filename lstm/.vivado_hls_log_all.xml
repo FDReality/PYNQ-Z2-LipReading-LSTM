@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTMG 210-274] Memory 'infer_Bias0_o' is read-only, switch it to a ROM." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:49:43.663+0800" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'infer_Weight0_o' is read-only, switch it to a ROM." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:49:43.233+0800" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'infer_Bias0_c' is read-only, switch it to a ROM." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:49:43.067+0800" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'infer_Weight0_c' is read-only, switch it to a ROM." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:49:42.641+0800" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'infer_Bias0_i' is read-only, switch it to a ROM." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:49:42.468+0800" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'infer_Weight0_i' is read-only, switch it to a ROM." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:49:42.034+0800" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'infer_Bias0_f' is read-only, switch it to a ROM." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:49:41.872+0800" type="Warning"/>
+        <logs message="WARNING: [RTMG 210-274] Memory 'infer_Weight0_f' is read-only, switch it to a ROM." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:49:41.433+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'Bias0_o' will not be exposed as RTL port." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:49:35.286+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'Weight0_o' will not be exposed as RTL port." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:49:35.257+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'Bias0_c' will not be exposed as RTL port." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:49:35.253+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'Weight0_c' will not be exposed as RTL port." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:49:35.238+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'Bias0_i' will not be exposed as RTL port." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:49:35.233+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'Weight0_i' will not be exposed as RTL port." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:49:35.229+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'Bias0_f' will not be exposed as RTL port." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:49:35.223+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'Weight0_f' will not be exposed as RTL port." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:49:35.219+0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'store' operation ('res_addr_write_ln109', LSTM/rnn.cpp:109->LSTM/rnn.cpp:250) of variable 'tmp9_i', LSTM/rnn.cpp:109->LSTM/rnn.cpp:250 on array 'res' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'res'." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:49:20.778+0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('b_load_2', LSTM/rnn.cpp:44) on array 'b' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'b'." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:49:18.948+0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'store' operation ('res_addr_write_ln109', LSTM/rnn.cpp:109) of variable 'tmp8', LSTM/rnn.cpp:109 on array 'res' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'res'." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:49:15.962+0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('a_load_2', LSTM/rnn.cpp:29) on array 'a' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'a'." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:49:13.067+0800" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'geva.1' to 'geva_1'." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:49:11.142+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'lipnet_lstm&lt;float, 1, 1, 1>' to 'lipnet_lstm' (LSTM/rnn_top.cpp:5:25)" projectName="LSTM" solutionName="solution1" date="2022-11-25T11:49:10.626+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'loop_iner' (LSTM/rnn.cpp:27) because its parent loop or function is pipelined." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:49:09.012+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'loop_iner' (LSTM/rnn.cpp:42) because its parent loop or function is pipelined." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:49:08.974+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-1103] Ignored data pack directive on non-struct variable 'in.data.V' (LSTM/rnn_top.cpp:33)." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:49:08.970+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-1103] Ignored data pack directive on non-struct variable 'out.data.V' (LSTM/rnn_top.cpp:33)." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:49:08.888+0800" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'LSTM_Top_ap_fptrunc_0_no_dsp_64' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:51:29.982+0800" type="Warning"/>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'LSTM_Top_ap_fpext_0_no_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:51:26.197+0800" type="Warning"/>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'LSTM_Top_ap_fmul_2_max_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:51:22.496+0800" type="Warning"/>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'LSTM_Top_ap_fdiv_14_no_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:51:18.416+0800" type="Warning"/>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'LSTM_Top_ap_fadd_3_full_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:51:14.842+0800" type="Warning"/>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'LSTM_Top_ap_dsub_3_full_dsp_64' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:51:11.453+0800" type="Warning"/>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'LSTM_Top_ap_dexp_16_full_dsp_64' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:51:07.477+0800" type="Warning"/>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'LSTM_Top_ap_ddiv_29_no_dsp_64' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:51:02.595+0800" type="Warning"/>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'LSTM_Top_ap_dadd_3_full_dsp_64' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="LSTM" solutionName="solution1" date="2022-11-25T11:50:58.704+0800" type="Warning"/>
+      </packageLog>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>
